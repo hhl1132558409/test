@@ -1,0 +1,134 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>亲爱的我爱你</title>
+    <audio id="bgmMusic" src="http://qzone.haoduoge.com/music3/2015-02-05/1423102935.mp3" preload="auto" type="audio/mp3" autoplay loop></audio>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FF62FF;
+}
+.content {
+	width: 80%;
+	color: #90F;
+	height: 100%;
+	top: 0px;
+	left: 10%;
+	font-size: 18px;
+	line-height: 25px;
+	font-family: "微软雅黑";
+	margin-top: 0px;
+}
+body {
+	color: #FFF;
+	padding: 10px;
+	background: #FFF url(./bg_105_wrap2.jpg) no-repeat fixed top center;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.des {
+	font-size: 15px;
+	color: #3C3C3C;
+	/*width: 100%;*/
+	text-shadow : 0px 0px 1px #fff;
+	z-index:1000;					
+	right:20px;
+	position:fixed !important;
+	bottom:0px;
+}
+.des a {
+	color: #3C3C3C;
+	text-shadow : 0px 0px 1px #fff;
+}
+</style>
+<script src="jquery-1.7.1.min.js" language="javascript" type="text/javascript"></script>
+<script src="tao.js" language="javascript" type="text/javascript"></script>
+<script>
+$(document).ready(function(e) {
+	
+	/*禁止右键和隐藏鼠标*/
+	$("body").bind("contextmenu", function() {
+      return false;
+    });
+	/*定义文字最底部显示到哪儿*/
+	
+	
+	
+	var guangs=["　","|","　","|"];
+	var guangBiao="/";
+	var guangSub=0;
+	var guang=setInterval("$.guang()",120);
+	
+	var subs=0;
+    var string="宝，你曾问过我██我究竟喜欢你什么██那时的回答想来有些含糊，算得真心又不完全算得██不如就此用我内心肺腑之言重新作答一遍，你安静倾听便好██每每思考这个问题，我的脑中总会划过这样的场景███午后的太阳残留在你如蝴蝶翅膀一样扇动的睫毛上██我在灿烂的阳光中抱着你██你轻轻的呼吸，脸上反射着温暖的萤火的光██我是在这一刻爱上了你██在此刻，有个人像一束温暖的光██照进了我干涸的生命里██爱情，我曾一度忘了她██现在她安静的躺在我的怀里，她的存在好似有魔力一般██让一度封闭内心的我██让不愿追求爱情的我██让对感情冰山如一般的我██被你温柔的眸，璀璨的笑给融化██我爱你，于我来说，你便是世上的唯一███████心门打开，何不顺其自然██感情降至，我愿山盟海誓██████来我的怀里██或者██让我住进你的心里██默然 相爱██寂静 欢喜";
+	$.intent=function(str){
+		str="　　"+str;
+		//var reg=new RegExp("/█{1,2}/","i"); //创建正则RegExp对象
+        str=str.replace(eval("/█/gi"),"█");
+
+		return str;
+	}
+	string=$.intent(string);
+	
+	var echo=setInterval("$.echo()",300);
+		
+	
+	
+	$.guang=function(){
+		  if(guangSub<guangs.length-1){
+			    guangSub++;
+			  }else{
+				  guangSub=0;
+				  }
+			guangBiao=guangs[guangSub];
+			$("#guang").html(guangBiao);
+			
+		}
+	
+	$.echo=function(){
+		if(subs<string.length){
+		$("#txt").html($("#txt").html()+$.repl(string.substr(subs,1)));
+		if($("#guang").offset().top > document.body.scrollHeight / 2){
+		  window.scrollTo(0,$("#guang").offset().top);
+		}
+               $(".des").css("bottom","0px");
+		subs++;
+		}
+	}
+	$.repl=function(str){
+		str=str.replace("\r\n","<br/>");
+		str=str.replace("\n","<br/>");
+		str=str.replace("█","<br/>");
+		return str;
+		}
+});
+
+</script>
+</head>
+
+<center>
+<div align="left" class="content"><span  id="txt"></span><span id="guang"></span>
+<span></span>
+</div>
+</center>
+
+
+
+
+<!--下面是浮动的桃心-->
+<div id="bubbles" style="visibility:hidden">
+<img src="img/1.png">
+<img src="img/2.png">
+<img src="img/1.png">
+</div>
+<!---->
+
+
+
+</body>
+</html>
