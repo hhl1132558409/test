@@ -20,7 +20,7 @@ x0 = Math.round(x0 + Math.cos(y0 / 15) * p) + xx;
 y0+= yy - v;
 if(y0 < -h * 2 || x0 < -w * 2 || x0 > nx + w * 2){
 y0 = ny + N + h * 2;
-x0 = nx/2-100 + Math.random() * 100;
+x0 = nx/2-1000 + Math.random() * 2000;
 ec = 0;
 }
 obj.style.top  = y0 - h;
